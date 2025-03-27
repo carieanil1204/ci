@@ -9,6 +9,7 @@ describe('Integration Test: Nginx Web Server', () => {
     chai.request('http://localhost:8080')  // Assuming Docker container is mapped to port 8080
       .get('/')
       .end((err, res) => {
+        console.log(res);  // Debug the response object
         expect(res).to.have.status(200);  // Ensure the server returns 200 status code
         expect(res.text).to.include('Hello from Docker!');  // Ensure the HTML content is correct
         done();
